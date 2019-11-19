@@ -11,12 +11,23 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 app.layout = html.Div([
     # represents the URL bar, doesn't render anything
     dcc.Location(id='url', refresh=False),
+    dcc.Markdown('''
+    # Welcome to Dash!
+    
+    This page serves as a playground for us to slowly build toward something..
+    ## Navigation and multipage
+    '''),
     dcc.Link('Navigate to "/"', href='/'),
     html.Br(),
     dcc.Link('Navigate to "/page-2"', href='/page-2'),
 
     # content will be rendered in this element
     html.Div(id='page-content'),
+
+    dcc.Markdown("""
+    # Callback Button Example
+
+    """),
     html.Div(id='my-indicator'),
     html.Button("Click-Me", id="click-me", n_clicks=0),
     html.Button("Reset", id="reset-click-me"),
